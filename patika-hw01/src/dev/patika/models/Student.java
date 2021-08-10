@@ -1,4 +1,4 @@
-package dev.patika;
+package dev.patika.models;
 
 import java.util.Objects;
 

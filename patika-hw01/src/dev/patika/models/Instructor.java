@@ -15,8 +15,10 @@ public class Instructor {
     private String address;
     private String phoneNumber;
 
-    @OneToMany
-    List<Course> courseList = new ArrayList<>();
+    // One instructor may have several courses
+    // mapping is handled at One to Many relation
+    @OneToMany(mappedBy = "instructor")
+    List<Course> courses = new ArrayList<>();
 
     public Instructor(String name, String address, String phoneNumber) {
         this.name = name;
@@ -51,6 +53,13 @@ public class Instructor {
         this.phoneNumber = phoneNumber;
     }
 
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 
     // Only phoneNumber is used for equals & hashCode
     @Override

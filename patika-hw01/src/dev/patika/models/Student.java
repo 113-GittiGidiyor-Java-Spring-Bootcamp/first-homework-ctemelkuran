@@ -8,18 +8,18 @@ import java.util.Objects;
 
 @Entity
 public class Student {
-
+    // instance variables
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // instance variables
+    private int id;
     private String name;
     private LocalDate birthDate;
     private String address;
     private String gender;
 
     // A student can attend to 0 or more courses
-    @ManyToMany
-    private List<Course> courseList = new ArrayList<>();
+    @ManyToMany(mappedBy = "students")
+    private List<Course> courses = new ArrayList<>();
 
 
     //constructors
@@ -68,12 +68,12 @@ public class Student {
         this.gender = gender;
     }
 
-    public List<Course> getCourseList() {
-        return courseList;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
+    public void setCourses(List<Course> courseList) {
+        this.courses = courseList;
     }
 
     // equals and hashCode & toString

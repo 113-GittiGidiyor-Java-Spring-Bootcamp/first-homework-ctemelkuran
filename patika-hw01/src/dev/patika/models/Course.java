@@ -14,8 +14,8 @@ public class Course {
     private String courseName;
     private int creditScore;
 
-    @ManyToMany
-    private List<Student> studentList = new ArrayList<>();
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students = new ArrayList<>();
 
     @ManyToOne
     private Instructor instructor;
@@ -57,13 +57,6 @@ public class Course {
         this.creditScore = creditScore;
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
 
     public Instructor getInstructor() {
         return instructor;
@@ -71,6 +64,15 @@ public class Course {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 
     // only the Course Code is included to equals & hashCode because it is unique.

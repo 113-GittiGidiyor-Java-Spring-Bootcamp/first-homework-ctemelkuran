@@ -1,6 +1,8 @@
 package dev.patika.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
@@ -11,9 +13,11 @@ public class Student {
     private String address;
     private String gender;
 
+    // A student can attend to 0 or more courses
+    private List<Course> courseList = new ArrayList<>();
+
+
     //constructors
-
-
     public Student() {
     }
 
@@ -57,6 +61,14 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
     }
 
     // equals and hashCode & toString

@@ -1,5 +1,7 @@
 package dev.patika.models;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Course {
@@ -7,6 +9,13 @@ public class Course {
     private String courseName;
     private int creditScore;
 
+    private List<Student> studentList = new ArrayList<>();
+
+    private Instructor instructor;
+
+
+
+    //constructors
     public Course(String courseCode, String courseName, int creditScore) {
         this.courseCode = courseCode;
         this.courseName = courseName;
@@ -16,6 +25,7 @@ public class Course {
     public Course() {
     }
 
+    // getter & setters
     public String getCourseCode() {
         return courseCode;
     }
@@ -40,6 +50,21 @@ public class Course {
         this.creditScore = creditScore;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+    }
 
     // only the Course Code is included to equals & hashCode because it is unique.
     @Override

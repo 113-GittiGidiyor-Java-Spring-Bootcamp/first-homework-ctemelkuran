@@ -1,5 +1,8 @@
 package dev.patika.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class VisitingResearcher extends Instructor{
     private double hourlySalary;
 

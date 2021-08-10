@@ -1,7 +1,9 @@
 package dev.patika.models;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
+@Entity
 public class PermenantInstructor extends Instructor{
     private double fixedSalary;
 

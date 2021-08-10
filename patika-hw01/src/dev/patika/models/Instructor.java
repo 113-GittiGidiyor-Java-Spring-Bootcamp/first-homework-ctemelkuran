@@ -1,13 +1,22 @@
 package dev.patika.models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Instructor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String address;
     private String phoneNumber;
 
-
+    @OneToMany
+    List<Course> courseList = new ArrayList<>();
 
     public Instructor(String name, String address, String phoneNumber) {
         this.name = name;

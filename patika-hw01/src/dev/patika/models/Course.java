@@ -1,16 +1,23 @@
 package dev.patika.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String courseCode;
     private String courseName;
     private int creditScore;
 
+    @ManyToMany
     private List<Student> studentList = new ArrayList<>();
 
+    @ManyToOne
     private Instructor instructor;
 
 
@@ -88,4 +95,6 @@ public class Course {
                 ", creditScore=" + creditScore +
                 '}';
     }
+
+
 }

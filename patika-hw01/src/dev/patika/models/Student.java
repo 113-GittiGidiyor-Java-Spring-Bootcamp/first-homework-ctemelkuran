@@ -1,12 +1,16 @@
 package dev.patika.models;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     // instance variables
     private String name;
     private LocalDate birthDate;
@@ -14,6 +18,7 @@ public class Student {
     private String gender;
 
     // A student can attend to 0 or more courses
+    @ManyToMany
     private List<Course> courseList = new ArrayList<>();
 
 

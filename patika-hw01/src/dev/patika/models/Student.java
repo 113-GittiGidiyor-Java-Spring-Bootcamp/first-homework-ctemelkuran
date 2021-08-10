@@ -1,12 +1,13 @@
 package dev.patika.models;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Student {
 
     // instance variables
     private String name;
-    private String birthDate;
+    private LocalDate birthDate;
     private String address;
     private String gender;
 
@@ -16,7 +17,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String birthDate, String address, String gender) {
+    public Student(String name, LocalDate birthDate, String address, String gender) {
         this.name = name;
         this.birthDate = birthDate;
         this.address = address;
@@ -34,11 +35,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

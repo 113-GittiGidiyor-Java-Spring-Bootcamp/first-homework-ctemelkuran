@@ -14,11 +14,11 @@ public class SchoolSystem {
     }
 
     private static void saveTestData() {
+
+        // Objects of models are created
         Student student1 = new Student("Cigir Temelkuran", LocalDate.of(1997, Month.JUNE, 27), "Izmir", "Male");
         Student student2 = new Student("Jake Peralta", LocalDate.of(1988, Month.JANUARY, 2), "New York", "Male");
         Student student3 = new Student("Fatma Abaci", LocalDate.of(1996, Month.APRIL, 10), "Izmir", "Female");
-
-
 
         Instructor instructor1 = new PermenantInstructor("Koray Guney", "Istanbul", "+905551234567", 5000);
         Instructor instructor2 = new PermenantInstructor("Severus Snape", "London", "+445551234568", 6000);

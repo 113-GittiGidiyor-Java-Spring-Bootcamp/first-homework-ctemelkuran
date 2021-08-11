@@ -17,8 +17,9 @@ public class Student {
     private String address;
     private String gender;
 
+    // With regard to normalisation Hibernate creates an association table (E.g student_courses)
     // A student can attend to 0 or more courses
-    @ManyToMany//(mappedBy = "students")
+    @ManyToMany
     private List<Course> courses = new ArrayList<>();
 
 

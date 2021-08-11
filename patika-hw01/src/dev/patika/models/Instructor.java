@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) //SINGLETABLE'da Permenant ve Visitor Instructor table altına kaydedilir
 public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

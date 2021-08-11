@@ -13,6 +13,8 @@ public class Course {
     private String courseCode;
     private String courseName;
     private int creditScore;
+    // courseCode unique olsa da best practice olarak id tanımlanır
+    // autogenerate sağlanmaz, string olduğu için syntax kontrolü zor olur
 
     @ManyToMany(mappedBy = "courses")
     private List<Student> students = new ArrayList<>();

@@ -18,7 +18,7 @@ public class Student {
     private String gender;
 
     // A student can attend to 0 or more courses
-    @ManyToMany(mappedBy = "students")
+    @ManyToMany//(mappedBy = "students")
     private List<Course> courses = new ArrayList<>();
 
 

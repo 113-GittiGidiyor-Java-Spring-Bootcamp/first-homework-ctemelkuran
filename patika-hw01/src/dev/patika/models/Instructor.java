@@ -53,11 +53,11 @@ public class Instructor {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Course> getCourses() {
+    public List<Course> getInstructorCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setInstructorCourses(List<Course> courses) {
         this.courses = courses;
     }
 

@@ -1,21 +1,44 @@
 package dev.patika.clients;
 
+import dev.patika.controller.StudentController;
 import dev.patika.models.*;
 import dev.patika.utils.EntityManagerUtils;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 
 public class SchoolSystem {
 
     public static void main(String[] args) {
-        saveTestData();
+        // Save newly created data to the database
+        // saveTestData();
+
+        StudentController sController = new StudentController();
+        /*Student student4 = new Student("Travis Scott", LocalDate.of(1988, Month.JUNE, 20), "Los Angeles", "Male");
+        sController.saveStudent(student4);*/
+
+       /* sController.deleteStudent(4); */
+
+        List<Student> returnedList = new StudentController().findAllStudents();
+
+        for (Student student : returnedList) {
+            System.out.println(student);
+        }
+
+        // Test for finding courses of a student
+        System.out.println("Course of student " + returnedList.get(0).getName());
+        List<Course> courseList = sController.findCoursesOfStudent(1);
+        for (int i = 0; i < courseList.size(); i++) {
+            System.out.println((i+1) + " -> " + courseList.get(i).getCourseName());
+        }
+
     }
 
     private static void saveTestData() {
 
-        // test
+
         // Objects of models are created
         Student student1 = new Student("Cigir Temelkuran", LocalDate.of(1997, Month.JUNE, 27), "Izmir", "Male");
         Student student2 = new Student("Jake Peralta", LocalDate.of(1988, Month.JANUARY, 2), "New York", "Male");
@@ -42,6 +65,19 @@ public class SchoolSystem {
         course2.getStudents().add(student2);
         course3.getStudents().add(student3);
         course4.getStudents().add(student2);
+
+        student1.getCourses().add(course1);
+        student1.getCourses().add(course2);
+        student2.getCourses().add(course1);
+        student2.getCourses().add(course3);
+        student3.getCourses().add(course4);
+
+        instructor1.getInstructorCourses().add(course1);
+        instructor1.getInstructorCourses().add(course2);
+        instructor2.getInstructorCourses().add(course3);
+        instructor3.getInstructorCourses().add(course4);
+
+
 
         // persistence.xml'de tanımlanan persistenceUnitName'i çağırdık
         EntityManager em = EntityManagerUtils.getEntityManager("mysqlPU");
